@@ -1,6 +1,9 @@
-from django.shortcuts import render
-from django.http import HttpResponse
+# from django.shortcuts import render
+from django.views import generic
+from .models import Category
 
 
-def index(request):
-    return HttpResponse("hello world")
+class IndexPage(generic.ListView):
+    model = Category
+    template_name = "index.html"
+    context_object_name = 'categories'

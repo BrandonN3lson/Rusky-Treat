@@ -3,3 +3,4 @@ dj-database-url==0.5.0
 Django==4.2.16
 psycopg2==2.9.10
 sqlparse==0.5.1
+whitenoise==6.8.2

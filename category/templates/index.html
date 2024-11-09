@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block nav %}
+<nav class="d-none navbar navbar-expand-lg d-sm-block sticky-top">
+    <div class="container-fluid justify-content-center">
+        <div class="nav" id="navbarNav">
+            <ul class="nav nav-tabs">
+                <li class="nav-item">
+                    <a class="nav-link active" href="{% url 'index' %}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">About</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" href="#">
+                        Products
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#" class="dropdown-item">Bread</a></li>
+                        <li><a href="#" class="dropdown-item">Cake</a></li>
+                        <li><a href="#" class="dropdown-item">Cupcakes</a></li>
+                        <li><a href="#" class="dropdown-item">Loafs</a></li>
+                        <li><a href="#" class="dropdown-item">Rusks</a></li>
+                    </ul>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+</nav>
+{% endblock %}
+
+{% block content %}
+<!-- hero section -->
+<section id="hero" class="text-light text-center d-flex align-items-center justify-content-center">
+    <div class="container bg-light bg-opacity-75 p-5 rounded">
+        <h1 class="display-4">Welcome to Rusky Treats</h1>
+        <p class="lead">Baking with love and tradition, one treat at a time. Handcrafted with care and served with
+            warmth, our treats are a piece of home in every bite.</p>
+        <a href="#" class="btn btn-primary btn-lg">Discover Our Creations</a>
+    </div>
+</section>
+
+<!-- Category section -->
+<section class="container-fluid">
+    <div class="row card-row">
+       {% for category in categories %}
+        <div class="col col-md-4 col-lg-3 card-catagory">
+            <div class="card-bg-image product-card align-items-center">
+                <div class="card">
+                    <img src="#" class="card-img-top"
+                        alt="Bread">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">{{ category.title }}</h5>
+                        <p class="card-text">
+                            Our handcrafted breads, including sourdough and specialty loaves, are baked fresh with wholesome
+                            ingredients for a delicious, hearty experience.
+                        </p>
+                        <div class="d-flex justify-content-center">
+                            <a href="#" class="btn btn-primary">Browse</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+
+
+    </div>
+</section>
+{% endblock %}
