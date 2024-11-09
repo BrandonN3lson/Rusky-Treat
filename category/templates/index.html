@@ -50,13 +50,12 @@
         <div class="col col-md-4 col-lg-3 card-catagory">
             <div class="card-bg-image product-card align-items-center">
                 <div class="card">
-                    <img src="#" class="card-img-top"
+                    <img src="{{ category.featured_image.url }}" class="card-img-top"
                         alt="Bread">
                     <div class="card-body">
                         <h5 class="card-title text-center">{{ category.title }}</h5>
                         <p class="card-text">
-                            Our handcrafted breads, including sourdough and specialty loaves, are baked fresh with wholesome
-                            ingredients for a delicious, hearty experience.
+                            {{ category.description }}
                         </p>
                         <div class="d-flex justify-content-center">
                             <a href="#" class="btn btn-primary">Browse</a>

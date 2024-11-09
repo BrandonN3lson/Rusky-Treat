@@ -1,0 +1,196 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Playfair Display", serif;
+}
+
+body {
+  margin: 0.5rem;
+  background-color: #f4f1ea;
+}
+
+/* -----------------------------------------------------------background color */
+header {
+    background-color: #f4f1ea;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
+    ;
+}
+
+#hero {
+  background-image: url("../images/hero-bakery.jpg");
+  background-size: cover;
+  background-position: center center;
+}
+
+.navbar {
+    background-color: #deb887;
+}
+
+.card-bg-image {
+  background-image: url("../images/card-background.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+}
+
+#about {
+    background-color: #fff8dc;
+}
+
+.btn-primary {
+    background-color: #8b4513;
+    border-color: #4b3621;
+}
+
+.btn-primary:hover {
+    background-color: #a0522d;
+    border-color: #4b3621;
+}
+
+.bg-color-registry {
+  background-color: #deb887;
+}
+/* -----------------------------------------------------------general styles */
+.col {
+  display: flex;
+  justify-content: center;
+  padding: 0;
+}
+
+h1,
+h2,
+h3,
+h5,
+p {
+  color: #4b3621;
+}
+
+
+.navbar {
+  border-bottom: 2px solid #8b4513; 
+  border-bottom-left-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+}
+
+.nav-link {
+  color: #4b3621 !important;
+}
+
+.nav-link:hover {
+  color: #8b4513 !important;
+}
+
+.offcanvas {
+  width: 200px;
+}
+
+/* ----------------------------------------------------------- Offcanvas navigation*/
+.offcanvas.offcanvas-start{
+    width: 200px;
+}
+
+
+/* -----------------------------------------------------------Hero section */
+
+#hero {
+  height: 60vh;
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+/* -----------------------------------------------------------About section */
+#about {
+  padding: 2rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.gallery-text {
+  display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.carousel {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  border-radius: 1rem;
+  margin-top: 1rem;
+}
+
+.carousel-item img {
+  height: 500px;
+  object-fit: cover; 
+  width: 100%; 
+}
+
+.carousel-inner {
+  padding: 1rem;
+}
+
+/* -----------------------------------------------------------Category cards */
+
+.card-img-top {
+  object-fit: cover;
+  height: 12.5rem;
+}
+
+.card {
+  background: transparent;
+  width: 16rem;
+  border: none;
+  padding-top: 1rem;
+}
+
+.card-catagory,
+.card-item {
+  margin-right: 0.5rem;
+}
+
+.card-row {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.product-card {
+  width: 16rem;
+  padding: 1rem;
+  justify-content: center;
+  display: flex;
+  filter: drop-shadow(5px 5px 10px #000000);
+}
+
+.product-card img {
+  height: 10rem;
+  border-radius: 10px;
+}
+/* -----------------------------------------------------------product page */
+.category-title {
+  border-top: 1px solid #b2a27e;
+  border-bottom: 1px solid #b2a27e;
+  width: 80%;
+  margin-top: 1rem;
+}
+
+
+
+/* -----------------------------------------------------------registry page */
+
+.registry-container {
+  margin-top: 1rem;
+  border-radius: 20px;
+  padding: 1rem;
+}
+
+form input,
+form button {
+  margin-bottom: 1rem;
+
+}
+
+.input-group-text {
+  height: 38px;
+}
