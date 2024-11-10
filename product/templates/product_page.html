@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% block nav %}
+
+    <nav class="d-none navbar navbar-expand-lg d-sm-block sticky-top">
+        <div class="container-fluid justify-content-center">
+            <div class="nav" id="navbarNav">
+                <ul class="nav nav-tabs">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'index'%}">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">About</a>
+                    </li>
+                    <li class="nav-item dropdown">
+
+                        <a class="nav-link dropdown-toggle active" data-bs-toggle="dropdown" aria-expanded="false" Dropdown
+                            href="#">Products</a>
+
+                        <ul class="dropdown-menu">
+                            <li><a href="#" class="dropdown-item">Bread</a></li>
+                            <li><a href="#" class="dropdown-item">Cake</a></li>
+                            <li><a href="#" class="dropdown-item">Cupcakes</a></li>
+                            <li><a href="#" class="dropdown-item">Loafs</a></li>
+                            <li><a href="#" class="dropdown-item">Rusks</a></li>
+                        </ul>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- product-section -->
+    <section class="container-fluid">
+        <div class="row card-row">
+            
+                <h2 class="category-title text-center">#</h2>
+                
+                
+                    <div class="col col-md-4 col-lg-3 card-category">
+                        <div class="card-bg-image product-card align-items-center">
+                            <div class="card">
+                                <img src="#" class="card-img-top" alt="#">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{ product.name }}</h5>
+                                    <p class="card-text">{{ product.description }}</p>
+                                    <p class="card-text"><strong>Price: </strong>€{{ product.price }}</p>
+                                    <a href="#" class="btn btn-primary">Buy Now</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                
+        </div>
+    </section>
+    
+
+{% endblock %}

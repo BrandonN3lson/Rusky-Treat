@@ -1,6 +1,8 @@
-from django.shortcuts import render
-from django.http import HttpResponse
+from django.views import generic
+from .models import Products
 
 
-def product_view(request):
-    return HttpResponse("hello from products")
+class ProductPage(generic.ListView):
+    model = Products
+    template_name = "product_page.html"
+    context_object_name = 'products'
