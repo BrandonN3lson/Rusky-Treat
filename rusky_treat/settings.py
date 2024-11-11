@@ -16,7 +16,6 @@ import dj_database_url
 if os.path.isfile('env.py'):
     import env # noqa
 
-
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -29,7 +28,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = [
     '8000-brandonn3lso-ruskytreat-ouzp78f9hil.ws.codeinstitute-ide.net'
@@ -50,6 +49,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'cloudinary_storage',
+    'django_summernote',
     'cloudinary',
     'category',
     'product',
@@ -157,9 +157,9 @@ CLOUDINARY_API_KEY = os.environ.get("CLOUDINARY_API_KEY")
 CLOUDINARY_API_SECRET = os.environ.get("CLOUDINARY_API_SECRET")
 
 CLOUDINARY_STORAGE = {
-    CLOUDINARY_CLOUD_NAME,
-    CLOUDINARY_API_KEY,
-    CLOUDINARY_API_SECRET,
+    'CLOUD_NAME': CLOUDINARY_CLOUD_NAME,
+    'API_KEY': CLOUDINARY_API_KEY,
+    'API_SECRET': CLOUDINARY_API_SECRET,
 }
 
 DEFAULT_FILE_STORAGE = "cloudinary_storage.storage.MediaCloudinaryStorage"
