@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% load i18n %}
+{% load account socialaccount %}
+
+{% block head_title %}{% trans "Sign In" %}{% endblock head_title %}
+
+{% block content %}
+
+<div class="container">
+  <div class="row">
+      <div class="col-md-8 mt-3 offset-md-2 text-center">
+          <h3>{% trans "Welcome Back to Rusky Treats!" %}</h3>
+
+          <p>{% blocktrans %}Welcome back!. To make an order, please log in. If you
+              have not created an account yet, then <a class="link" href="{{ signup_url }}">sign up</a>
+              first.{% endblocktrans %}</p>
+      </div>
+  </div>
+  <div class="signin-form">
+    <form class="form-container" method="POST" action="{% url 'account_login' %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        {% if redirect_field_value %}
+            <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+        {% endif %}
+        <div class="form-links text-center">
+            <a class="link-secondary" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
+        </div>
+        <hr/>
+        <button class="btn btn-primary btn-block" type="submit">{% trans "Sign In" %}</button>
+    </form>
+  </div>
+</div>
+
+{% endblock %}
