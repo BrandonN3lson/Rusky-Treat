@@ -2,45 +2,8 @@
 {% load static %}
 
 
-{% block nav %}
-<nav class="d-none navbar navbar-expand-lg d-sm-block sticky-top">
-    <div class="container-fluid justify-content-center">
-        <div class="nav" id="navbarNav">
-            <ul class="nav nav-tabs">
-                <li class="nav-item">
-                    <a class="nav-link active" href="{% url 'index' %}">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">About</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle active" data-bs-toggle="dropdown" aria-expanded="false" href="#">Products</a>
-                    <ul class="dropdown-menu">
-                        {% for category in categories %}
-                            <li><a href="{% url 'product_category' category_slug=category.slug %}" class="dropdown-item">{{ category.title }}</a></li>
-                        {% endfor %}
-                    </ul>
-                </li>
-                {% if user.is_authenticated %}
-                <li class="nav-item">
-                    <a class="nav-link {% if request.path == logout_url %}active{% endif %}" aria-current="page" href="{% url 'account_logout' %}">Logout</a>
-                </li>
-                {% else %}
-                <li class="nav-item">
-                    <a class="nav-link {% if request.path == signup_url %}active{% endif %}" aria-current="page"
-                        href="{% url 'account_signup' %}">Register</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link {% if request.path == login_url %}active{% endif %}" aria-current="page" href="{% url 'account_login' %}">Login</a>
-                </li>
-                {% endif %}
-            </ul>
-                
-            </ul>
-        </div>
-    </div>
-</nav>
-{% endblock %}
+
+
 
 {% block content %}
 <!-- hero section -->
@@ -68,7 +31,7 @@
                             {{ category.description }}
                         </p>
                         <div class="d-flex justify-content-center">
-                            <a href="#" class="btn btn-primary">Browse</a>
+                            <a href="{% url 'product_category' category_slug=category.slug %}" class="btn btn-primary">Browse</a>
                         </div>
                     </div>
                 </div>

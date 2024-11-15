@@ -86,6 +86,12 @@ p {
   width: 200px;
 }
 
+/* ----------------------------------------------------------- nav*/
+
+ul.nav.nav-tabs{
+  border: none;
+}
+
 /* ----------------------------------------------------------- Offcanvas navigation*/
 .offcanvas.offcanvas-start{
     width: 200px;
