@@ -1,0 +1,49 @@
+{% extends "base.html"%}
+
+
+{% block content %}
+
+    <section id="about" class="py-5 bg-light">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-8 text-center">
+                    {% for item in about %}
+                    <h2 class="mb-4">{{ item.title }}</h2>
+
+                    <p class="lead mb-4">
+                        {{ item.content | safe }}
+                    </p>
+                    {% endfor %}
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="row gallery justify-content-center">
+
+        <div class="col-sm-4 gallery-text">
+            <h2>Gallery</h2>
+        </div>
+
+        <div id="about-carousel" class="col carousel slide carousel-fade mb-4 w-50" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                {% for image in about.image.all %}
+                <div class="carousel-item active">
+                    <img src="{{image.image.url}}" class="d-block w-100 img-fluid " alt="Bakery Process">
+                </div>
+                {% endfor %}
+            </div>
+            <a class="carousel-control-prev" href="#about-carousel" role="button" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#about-carousel" role="button" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </a>
+        </div>
+    </section>
+    
+
+{% endblock %}
