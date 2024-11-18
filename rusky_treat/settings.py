@@ -31,7 +31,8 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 DEBUG = False
 
 ALLOWED_HOSTS = [
-    '8000-brandonn3lso-ruskytreat-ouzp78f9hil.ws.codeinstitute-ide.net'
+    '8000-brandonn3lso-ruskytreat-ouzp78f9hil.ws.codeinstitute-ide.net',
+    '.herokuapp.com',
 ]
 
 CSRF_TRUSTED_ORIGINS = [

@@ -1,1 +1,1 @@
-web: gunicorn rusky_treat.wsgi:application
+web: gunicorn rusky_treat.wsgi
