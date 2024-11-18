@@ -160,7 +160,7 @@ ul.nav.nav-tabs{
   justify-content: center;
   gap: 1rem;
 }
-
+/* -----------------------------------------------------------product page */
 .product-card {
   width: 16rem;
   padding: 1rem;
@@ -173,7 +173,7 @@ ul.nav.nav-tabs{
   height: 10rem;
   border-radius: 10px;
 }
-/* -----------------------------------------------------------product page */
+
 .category-title {
   border-top: 1px solid #b2a27e;
   border-bottom: 1px solid #b2a27e;
@@ -181,6 +181,12 @@ ul.nav.nav-tabs{
   margin-top: 1rem;
 }
 
+/* -----------------------------------------------------------product_details */
+
+.scale {
+  height: 25rem;
+  border-radius: 10px;
+}
 
 
 /* -----------------------------------------------------------registry page */

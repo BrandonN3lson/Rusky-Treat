@@ -4,6 +4,7 @@ $(document).ready(function () {
     const links = document.querySelectorAll('nav a');
     
     links.forEach(link => {
+        // adds active class to a tag in nav items, highlights current page.
         if ($(link).attr('href') === currentPath) {
             $(link).addClass('active');
         } else {

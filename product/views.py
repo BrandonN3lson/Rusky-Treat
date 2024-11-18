@@ -1,5 +1,6 @@
 # views.py
 from django.views import generic
+from django.shortcuts import render, get_object_or_404
 from .models import Product, Category
 
 
@@ -32,3 +33,9 @@ class ProductPage(generic.ListView):
         context['products_by_category'] = products_by_category
         context['categories'] = categories
         return context
+
+
+def product_detail(request, slug):
+
+    product = get_object_or_404(Product, slug=slug)
+    return render(request, 'product_detail.html', {'product': product})
