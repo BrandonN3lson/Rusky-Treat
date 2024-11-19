@@ -226,3 +226,47 @@ form button {
 .signup-form input {
   margin-left: 1rem;
 }
+
+/* -----------------------------------------------------------order page */
+.current-order-title {
+  border-top: 1px solid #b2a27e;
+  border-bottom: 1px solid #b2a27e;
+  text-align: center;
+  margin-top: 1rem;
+}
+.order-container {
+  padding: 1rem;
+  border-radius: 1rem;
+  width: 80%;
+  background: #f1eada;
+  max-height: 500px;
+  overflow-y: hidden;
+  overflow-x: hidden;
+  border: 1px solid #ddd;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.scrollable-table-container {
+  max-height: 300px;
+  overflow-y: auto;
+  border: 1px solid #ddd; 
+  padding: 10px; 
+}
+.order-product {
+  background: #f4f1ea;
+  border-radius: 0.5rem 0.5rem 0 0;
+}
+
+.total-price {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+table,
+thead,
+tbody,
+th,
+td,
+tr{
+  background-color: transparent !important;
+}
