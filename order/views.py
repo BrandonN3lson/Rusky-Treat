@@ -1,6 +1,7 @@
 from django.shortcuts import get_object_or_404, redirect
 from django.views import generic, View
-from .models import Order, Product
+from django.contrib import messages
+from .models import Order, OrderItem, Product
 
 
 class OrderPage(generic.ListView):
@@ -51,16 +52,20 @@ class AddToCart(View):
         quantity = int(request.POST.get('quantity', 1))
         product_id_str = str(product.id)
 
-        print(f"Adding {quantity} of {product.name} to the cart.")
-        print(f"Cart before adding: {cart}")
-
         if product_id_str in cart:
             cart[product_id_str] += quantity
-        else:
+            messages.success(request,
+                             f'Updated {product.name}'
+                             f' quantity in your cart'
+                             )
+        elif product_id_str not in cart:
             cart[product_id_str] = quantity
+            messages.success(request, f'{product.name} was added successfully')
+        else:
+            messages.error(request, f"Error adding {product.name} to cart")
 
         request.session['cart'] = cart
-        return redirect('orders')
+        return redirect('products')
 
 
 class RemoveFromCart(View):
@@ -71,10 +76,56 @@ class RemoveFromCart(View):
         product_id_str = str(product.id)
 
         if product_id_str in cart:
-            if cart[product_id_str] > 1:
-                cart[product_id_str] -= 1
-            else:
-                del cart[product_id_str]
+            del cart[product_id_str]
 
         request.session['cart'] = cart
+        return redirect('orders')
+
+
+class UpdateProductQuantity(View):
+
+    def post(self, request, product_id):
+        cart = request.session.get('cart', {})
+        product = get_object_or_404(Product, id=product_id)
+        product_id_str = str(product.id)
+        quantity = int(request.POST.get('quantity', 1))
+
+        if quantity > 0:
+            cart[product_id_str] = quantity
+            request.session['cart'] = cart
+            return redirect('orders')
+        else:
+            del cart[product_id]
+            request.session['cart'] = cart
+            return redirect('orders')
+
+
+class SubmitOrder(View):
+
+    def post(self, request):
+        cart = request.session.get('cart', {})
+        if not cart:
+            messages.error(request, 'Your cart is empty')
+            return redirect('orders')
+
+        order = Order.objects.create(
+            user=request.user,
+            status='Pending',
+        )
+
+        for product_id, quantity in cart.items():
+            product = get_object_or_404(Product, id=product_id)
+            order_item, created = OrderItem.objects.get_or_create(
+                order=order,
+                product=product,
+                defaults={'quantity': quantity}
+            )
+
+        order.save()
+
+        request.session['cart'] = {}
+        messages.success(
+                        request,
+                        f"Your Order {order.id} was submitted successfully"
+                        )
         return redirect('orders')

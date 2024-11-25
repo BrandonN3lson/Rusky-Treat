@@ -17,4 +17,10 @@ $(document).ready(function () {
         $(links).removeClass('active');
         $(this).addClass('active');
     })
+
+    // initiate toast
+    var toastElList = [].slice.call(document.querySelectorAll('.toast'))
+        var toastList = toastElList.map(function (toastEl) {
+            return new bootstrap.Toast(toastEl, option)
+            })
 })

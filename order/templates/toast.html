@@ -1,0 +1,31 @@
+{% if messages %}
+    <div id="notification-toast" aria-live="polite" class="position-fixed bottom-0 end-0 p-3">
+    {% for message in messages %}
+            <div
+                class="toast show "
+                role="alert"
+                aria-live="assertive"
+                aria-atomic="true"
+            >
+                
+                <div class="alert alert-{% if message.tags == 'success' %}success{% else %}error{% endif %}" >
+                    <strong class="me-auto alert-header text-capitalize">
+                        {{ message.tags }}
+                        <button
+                            type="button"
+                            class="btn-close"
+                            data-bs-dismiss="toast"
+                            aria-label="Close"
+                        ></button>
+                    </strong>
+                    <hr>
+                    <p>
+                        {{ message | safe }}
+                    </p>
+                </div>
+                
+
+            </div>
+        {% endfor %}
+    </div>
+{% endif %}

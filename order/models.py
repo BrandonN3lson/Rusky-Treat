@@ -45,6 +45,10 @@ class OrderItem (models.Model):
     def calculate_total_price(self):
         return self.product.price * self.quantity
 
+    def save(self, *args, **kwargs):
+        self.total_price = self.calculate_total_price
+        super().save(*args, **kwargs)
+
     def __str__(self):
         return (
             f"Order #{self.order.id} - "

@@ -85,6 +85,23 @@ p {
 .offcanvas {
   width: 200px;
 }
+/* ----------------------------------------------------------- toast*/
+#notification-toast {
+  z-index: 5;
+}
+
+.alert-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.toast.show > .alert.alert-success {
+  margin-bottom: 0 !important;
+}
+.toast {
+  margin-bottom: 0 !important;
+}
+
 
 /* ----------------------------------------------------------- nav*/
 
@@ -246,6 +263,16 @@ form button {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
+tbody a > i {
+  color: #a82222;
+}
+
+.update-quantity {
+  width: 3rem !important;
+  margin: 0;
+  padding-left: 0.5rem;
+}
+
 .scrollable-table-container {
   max-height: 300px;
   overflow-y: auto;
@@ -253,8 +280,19 @@ form button {
   padding: 10px; 
 }
 .order-product {
-  background: #f4f1ea;
+  background: #f1eada;;
   border-radius: 0.5rem 0.5rem 0 0;
+}
+
+.order-info>p{
+  margin: 0;
+}
+
+.history-order-container {
+  background: #f1eada;
+  border-radius: 1rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 1rem;
 }
 
 .total-price {
@@ -269,4 +307,21 @@ th,
 td,
 tr{
   background-color: transparent !important;
+}
+
+ul {
+  margin-bottom: 0;
+}
+
+td{
+  padding: 0 !important;
+}
+
+.product-quantity {
+  text-align: center;
+}
+
+.buy-btn {
+  flex-direction: row-reverse;
+  display: flex;
 }

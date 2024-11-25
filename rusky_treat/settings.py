@@ -15,6 +15,7 @@ import os
 import dj_database_url
 if os.path.isfile('env.py'):
     import env # noqa
+from django.contrib.messages import constants as messages
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -79,6 +80,7 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'rusky_treat.urls'
 
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -115,6 +117,10 @@ DATABASES = {
     'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
 }
 
+CSRF_TRUSTED_ORIGINS = [
+    "https://*.codeinstitute-ide.net/",
+    "https://*.herokuapp.com"
+]
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
 
@@ -150,7 +156,11 @@ USE_I18N = True
 
 USE_TZ = True
 
-
+SESSION_ENGINE = 'django.contrib.sessions.backends.db'
+MESSAGE_TAGS = {
+    messages.SUCCESS: "success",
+    messages.ERROR: "danger",
+}
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 WHITENOISE_MIMETYPES = {
