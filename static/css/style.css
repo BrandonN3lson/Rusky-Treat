@@ -321,7 +321,12 @@ td{
   text-align: center;
 }
 
+.resubmit-btn,
 .buy-btn {
   flex-direction: row-reverse;
   display: flex;
 }
+.page-link-new {
+  color: #fff !important;
+  text-decoration: none;
+ }

@@ -12,13 +12,10 @@ $(document).ready(function () {
         }
     })
 
-
     $(links).click(function () {
         $(links).removeClass('active');
         $(this).addClass('active');
     })
-
-
     
 
     // initiate toast

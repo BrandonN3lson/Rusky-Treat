@@ -21,6 +21,9 @@ class Order(models.Model):
                               default='Pending'
                               )
 
+    class Meta:
+        ordering = ["-order_date"]
+
     @property
     def total_price(self):
         return sum(item.total_price for item in self.items.all())

@@ -1,4 +1,4 @@
-from django.shortcuts import get_object_or_404, redirect
+from django.shortcuts import get_object_or_404, redirect, render
 from django.views import generic, View
 from django.contrib import messages
 from .models import Order, OrderItem, Product
@@ -129,3 +129,41 @@ class SubmitOrder(View):
                         f"Your Order {order.id} was submitted successfully"
                         )
         return redirect('orders')
+
+
+class EditOrder(View):
+
+    def get_queryset(self):
+        if self.request.user.is_superuser:
+            return Order.objects.all()
+        else:
+            return Order.objects.filter(user=self.request.user,
+                                        status="Pending")
+
+    def get(self, request, order_id):
+        editing_order = True
+        order = get_object_or_404(Order, id=order_id,
+                                  user=request.user, status="Pending"
+                                  )
+        if not order.user == request.user:
+            editing_order = False
+            messages.error('You are not authorised to edit this order')
+            return redirect('orders')
+        else:
+            order_items = [{
+                'product': item.product,
+                'quantity': item.quantity,
+                'total_price': item.product.price * item.quantity
+            } for item in order.items.all()
+            ]
+            request.session['cart'] = {
+                str(item.product.id):
+                item.quantity for item in order.items.all()
+            }
+
+        return render(request, 'order_page.html', {
+            'order': order,
+            'order_items': order_items,
+            'editing_order': editing_order,
+        })
+

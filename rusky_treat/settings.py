@@ -30,6 +30,7 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
+
 ALLOWED_HOSTS = [
     '8000-brandonn3lso-ruskytreat-ouzp78f9hil.ws.codeinstitute-ide.net',
     '.herokuapp.com',
@@ -95,6 +96,7 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'category.context_processors.categories_context',
+                'order.context_processors.order_history_processor',
             ],
         },
     },
