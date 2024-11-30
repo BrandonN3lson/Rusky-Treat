@@ -251,10 +251,11 @@ form button {
   text-align: center;
   margin-top: 1rem;
 }
-.order-container {
+.edit-order-container,
+.current-order-container {
   padding: 1rem;
   border-radius: 1rem;
-  width: 80%;
+  width: 100%;
   background: #f1eada;
   max-height: 500px;
   overflow-y: hidden;
@@ -321,7 +322,6 @@ td{
   text-align: center;
 }
 
-.resubmit-btn,
 .buy-btn {
   flex-direction: row-reverse;
   display: flex;
@@ -329,4 +329,18 @@ td{
 .page-link-new {
   color: #fff !important;
   text-decoration: none;
+ }
+
+ .edit-orders-btn {
+  width: 95%;
+  justify-content: space-between;
+  align-items: center;
+ }
+
+ .edit-btn > form button {
+  margin-bottom: 0;
+ }
+
+ .delete-order-btn {
+  color: #a82222;
  }

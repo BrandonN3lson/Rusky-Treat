@@ -8,6 +8,7 @@ class OrderPage(generic.ListView):
     model = Order
     template_name = "order_page.html"
     context_object_name = "orders"
+    paginate_by = 3
 
     def get_queryset(self):
         if self.request.user.is_superuser:
@@ -133,37 +134,214 @@ class SubmitOrder(View):
 
 class EditOrder(View):
 
-    def get_queryset(self):
-        if self.request.user.is_superuser:
-            return Order.objects.all()
-        else:
-            return Order.objects.filter(user=self.request.user,
-                                        status="Pending")
-
     def get(self, request, order_id):
-        editing_order = True
-        order = get_object_or_404(Order, id=order_id,
-                                  user=request.user, status="Pending"
-                                  )
+        try:
+            order = get_object_or_404(Order, id=order_id,
+                                      user=request.user, status="Pending"
+                                      )
+        except Exception as e:
+            print(f'Error fetching order {e}')
+            messages.error(request, 'Order not found')
+            return redirect('orders')
+
         if not order.user == request.user:
             editing_order = False
             messages.error('You are not authorised to edit this order')
             return redirect('orders')
-        else:
-            order_items = [{
-                'product': item.product,
-                'quantity': item.quantity,
-                'total_price': item.product.price * item.quantity
-            } for item in order.items.all()
-            ]
-            request.session['cart'] = {
-                str(item.product.id):
-                item.quantity for item in order.items.all()
-            }
+
+        edit_cart = request.session['edit_cart'] = {}
+        editing_order = True
+        edit_cart = {
+            str(item.product.id):
+            item.quantity for item in order.items.all()
+        }
+
+        request.session['edit_cart'] = edit_cart
+
+        order_items = []
+        order_total_price = 0
+        for product_id, quantity in edit_cart.items():
+            product = Product.objects.get(id=product_id)
+            item_total_price = product.price * quantity
+            order_total_price += product.price * quantity
+            order_items.append({
+                'product': product,
+                'quantity': quantity,
+                'total_price': item_total_price,
+                'order_total_price': order_total_price
+            })
 
         return render(request, 'order_page.html', {
             'order': order,
+            'product': product,
+            'edit_cart': edit_cart,
             'order_items': order_items,
-            'editing_order': editing_order,
-        })
+            'order_total_price': order_total_price,
+            'editing_order': editing_order
+            })
 
+
+class RemoveFromOrder(View):
+
+    def get(self, request, order_id, product_id):
+        try:
+            order = get_object_or_404(Order, id=order_id,
+                                      user=request.user, status="Pending"
+                                      )
+        except Exception as e:
+            print(f'Error fetching order {e}')
+            messages.error(request, 'Order not found')
+            return redirect('orders')
+
+        edit_cart = request.session.get('edit_cart', {})
+        print("before removing product:", request.session['edit_cart'])
+
+        product = get_object_or_404(Product, id=product_id)
+        product_id_str = str(product.id)
+        if product_id_str in edit_cart:
+            del edit_cart[product_id_str]
+            request.session['edit_cart'] = edit_cart
+            request.session.modified = True
+
+        order_items = []
+        item_total_price = 0
+        order_total_price = 0
+        for product_id, quantity in edit_cart.items():
+            product = Product.objects.get(id=product_id)
+            item_total_price = product.price * quantity
+            order_total_price += product.price * quantity
+            order_items.append({
+                'product': product,
+                'quantity': quantity,
+                'total_price': item_total_price,
+                'order_total_price': order_total_price
+            })
+
+        editing_order = True
+        print("after removing product:", request.session['edit_cart'])
+
+        return render(request, 'order_page.html', {
+            'order': order,
+            'product': product,
+            'edit_cart': edit_cart,
+            'order_items': order_items,
+            'order_total_price': order_total_price,
+            'editing_order': editing_order
+            })
+
+
+class UpdateOrderQuantity(View):
+
+    def post(self, request, order_id, product_id):
+        try:
+            order = get_object_or_404(Order, id=order_id,
+                                      user=request.user, status="Pending"
+                                      )
+        except Exception as e:
+            print(f'Error fetching order {e}')
+            messages.error(request, 'Order not found')
+            return redirect('orders')
+
+        edit_cart = request.session.get('edit_cart', {})
+        product = get_object_or_404(Product, id=product_id)
+        product_id_str = str(product.id)
+        quantity = int(request.POST.get('quantity', 0))
+
+        if quantity > 0:
+            edit_cart[product_id_str] = quantity
+            request.session['edit_cart'] = edit_cart
+            editing_order = True
+        else:
+            del edit_cart[product_id]
+            request.session['edit_cart'] = edit_cart
+            editing_order = False
+            return redirect('orders')
+
+        order_items = []
+        item_total_price = 0
+        order_total_price = 0
+        for product_id, quantity in edit_cart.items():
+            product = Product.objects.get(id=product_id)
+            item_total_price = product.price * quantity
+            order_total_price += product.price * quantity
+            order_items.append({
+                'product': product,
+                'quantity': quantity,
+                'total_price': item_total_price,
+                'order_total_price': order_total_price
+            })
+
+        request.session['edit_cart'] = edit_cart
+        editing_order = True
+        return render(request, 'order_page.html', {
+            'order': order,
+            'product': product,
+            'edit_cart': edit_cart,
+            'order_items': order_items,
+            'order_total_price': order_total_price,
+            'editing_order': editing_order
+            })
+
+
+class CancelEdit(View):
+
+    def get(self, request, order_id):
+
+        messages.success(request, "Editing canceled.")
+
+        return redirect('orders')
+
+
+class CancelOrder(View):
+    def get(self, request, order_id):
+        try:
+            order = get_object_or_404(Order, id=order_id,
+                                      user=request.user, status="Pending"
+                                      )
+        except Exception as e:
+            print(f'Error fetching order {e}')
+            messages.error(request, 'Order not found')
+            return redirect('orders')
+        order.status = 'Cancelled'
+        order.save()
+        messages.success(request, f'Your order {order.id} has been cancelled')
+        return redirect('orders')
+
+
+class ResubmitOrder(View):
+
+    def post(self, request, order_id):
+        try:
+            order = get_object_or_404(Order, id=order_id,
+                                      user=request.user, status="Pending"
+                                      )
+        except Exception as e:
+            print(f'Error fetching order {e}')
+            messages.error(request, 'Order not found')
+            return redirect('orders')
+
+        edit_cart = request.session.get('edit_cart', {})
+        if not edit_cart:
+            messages.error(request, 'you have no items in order')
+            return redirect('orders')
+
+        for product_id, quantity in edit_cart.items():
+            product = get_object_or_404(Product, id=product_id)
+            order_item, created = OrderItem.objects.get_or_create(
+                order=order,
+                product=product,
+            )
+            if not created:
+                order_item.quantity = quantity
+                order_item.save()
+
+        for item in order.items.all():
+            if str(item.product.id) not in edit_cart:
+                item.delete()
+
+        order.save()
+        request.session['edit_cart'] = {}
+        messages.success(request,
+                         f"Your Order {order.id} was edited successfully.")
+
+        return redirect('orders')
