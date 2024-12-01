@@ -3,10 +3,11 @@ from django.urls import path
 from .views import AddToCart, RemoveFromCart, UpdateProductQuantity
 from .views import SubmitOrder, EditOrder, ResubmitOrder
 from .views import RemoveFromOrder, UpdateOrderQuantity, CancelEdit
-from .views import CancelOrder
+from .views import CancelOrder, AdminOrderPage
 
 urlpatterns = [
      path("", OrderPage.as_view(), name="orders"),
+     path("admin-orders/", AdminOrderPage.as_view(), name="admin-orders"),
      path('add-to-cart/<int:product_id>/', AddToCart.as_view(),
           name='add_to_cart'),
      path('remove-from-cart/<int:product_id>/', RemoveFromCart.as_view(),

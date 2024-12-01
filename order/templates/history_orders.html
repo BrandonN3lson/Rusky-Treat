@@ -5,16 +5,19 @@
     </div>
 </div>
 <div class="row d-flex justify-content-center {% if editing_order %}d-none{% else %}d-block{% endif %}">
-    {% if orders %}
-    {% for order in orders %}
-        {% if order.status == 'Pending' %}
+    {% for order in history_orders %}
+        {% if order %}
         <div class="container-fluid">
             <div class="row">
                 <div data-order-id="{{ order.id }}" data-edit-mode="false" class="col-12 col-sm-10 container history-order-container order">
                     <div class="container row">
                         <div class="col-12 col-md-3 order-info">
                             <p>Order #{{ order.id }}</p>
-                            <p class="text-capitalize"> Status: <strong>{{ order.status }}</strong></p>
+                            <p class="text-capitalize">Status: 
+                                <strong class="{% if order.status == 'Pending' %} pending {% elif order.status == 'Processing' %} processing {% elif order.status == 'Completed' %} completed {% elif order.status == 'Cancelled' %} cancelled {% endif %}">
+                                    {{ order.status }}
+                                </strong>
+                            </p>
                             <p>{{ order.order_date|date:"F j, Y" }} </p>
                         </div>
                         <div class="col-auto flex-fill order-items">
@@ -59,6 +62,20 @@
         <p>No previous orders found.</p>
         {% endif %}
     {% endfor %}
-    {% endif %}
+
+    <ul id="pagination-btn" class="pagination justify-content-center ">
+        {% if history_orders.has_previous %}
+        <li>
+            <a href="?page={{ history_orders.previous_page_number }}"
+              class="page-link-new btn btn-primary">&laquo; PREV</a>
+        </li>
+        {% endif %}
+        {% if history_orders.has_next %}
+        <li>
+            <a href="?page={{ history_orders.next_page_number }}"
+              class="page-link-new btn btn-primary">NEXT &raquo;</a>
+        </li>
+        {% endif %}
+    </ul>
     
 </div>

@@ -1,21 +1,52 @@
 from django.shortcuts import get_object_or_404, redirect, render
 from django.views import generic, View
+from django.core.paginator import Paginator
 from django.contrib import messages
 from .models import Order, OrderItem, Product
+
+
+class AdminOrderPage(generic.ListView):
+    model = Order
+    template_name = "admin_order_page.html"
+    context_object_name = "admin_orders"
+
+    def get_queryset(self):
+
+        admin_orders = Order.objects.all()
+
+        if self.request.user.is_superuser:
+            return admin_orders
+        return Order.objects.none()
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+
+        # pagination for pending orders
+        pending_orders = self.get_queryset().filter(status='Pending')
+        paginator = Paginator(pending_orders, 2)
+        page = self.request.GET.get('page')
+        context['pending_orders'] = paginator.get_page(page)
+
+        context[
+            'processing_orders'
+            ] = self.get_queryset().filter(status='Processing')
+
+        return context
 
 
 class OrderPage(generic.ListView):
     model = Order
     template_name = "order_page.html"
     context_object_name = "orders"
-    paginate_by = 3
 
     def get_queryset(self):
-        if self.request.user.is_superuser:
-            return Order.objects.all()
+
+        user_orders = Order.objects.filter(user=self.request.user).all()
+
+        if self.request.user.is_authenticated:
+            return user_orders
         else:
-            return Order.objects.filter(user=self.request.user,
-                                        status="Pending")
+            return Order.objects.none()
 
     def get_context_data(self, **kwargs):
 
@@ -36,6 +67,11 @@ class OrderPage(generic.ListView):
                 'total_price': item_total_price,
                 'cart_total_price': cart_total_price
             })
+
+        history_orders = self.get_queryset().all()
+        paginator = Paginator(history_orders, 3)
+        page_number = self.request.GET.get('page', 1)
+        context['history_orders'] = paginator.get_page(page_number)
 
         context['cart_items'] = cart_items
         context['total_price'] = item_total_price
@@ -194,7 +230,6 @@ class RemoveFromOrder(View):
             return redirect('orders')
 
         edit_cart = request.session.get('edit_cart', {})
-        print("before removing product:", request.session['edit_cart'])
 
         product = get_object_or_404(Product, id=product_id)
         product_id_str = str(product.id)
@@ -218,7 +253,6 @@ class RemoveFromOrder(View):
             })
 
         editing_order = True
-        print("after removing product:", request.session['edit_cart'])
 
         return render(request, 'order_page.html', {
             'order': order,

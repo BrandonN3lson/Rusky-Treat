@@ -16,6 +16,28 @@ $(document).ready(function () {
         $(links).removeClass('active');
         $(this).addClass('active');
     })
+
+    // //change colors of order status
+    // $('.order-status').each(function() {
+    //     let status = $(this).find('strong').text().trim();
+    //     console.log("Status: ", status)
+    //     switch(status) {
+    //         case "Pending":
+    //             $(this).addClass('pending');
+    //             break;
+    //         case "Processing":
+    //             $(this).addClass('processing');
+    //             break;
+    //         case "Delivered":
+    //             $(this).addClass('delivered');
+    //             break;
+    //         case "Cancelled":
+    //             $(this).addClass('cancelled');
+    //             break;
+    //         default:
+    //             break;
+    //     }
+    // });
     
 
     // initiate toast

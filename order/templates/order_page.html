@@ -158,20 +158,5 @@
     {% include 'history_orders.html' %}
 </div>
 
-<ul id="pagination-btn" class="pagination justify-content-center ">
-    {% if page_obj.has_previous %}
-    <li>
-        <a href="?page={{ page_obj.previous_page_number }}"
-          class="page-link-new btn btn-primary">&laquo; PREV</a>
-    </li>
-    {% endif %}
-    {% if page_obj.has_next %}
-    <li>
-        <a href="?page={{ page_obj.next_page_number }}"
-          class="page-link-new btn btn-primary">NEXT &raquo;</a>
-    </li>
-    {% endif %}
-</ul>
-
 {% endblock %}
 

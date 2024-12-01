@@ -53,6 +53,10 @@ header {
   background-color: #deb887;
 }
 /* -----------------------------------------------------------general styles */
+.container {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
 .col {
   display: flex;
   justify-content: center;
@@ -290,6 +294,8 @@ tbody a > i {
 }
 
 .history-order-container {
+  display: flex;
+  justify-content: center;
   background: #f1eada;
   border-radius: 1rem;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -343,4 +349,35 @@ td{
 
  .delete-order-btn {
   color: #a82222;
+ }
+
+ /* -----------------------------------------------------------order status colors */
+ .pending{
+  color: #FFA500;
+ }
+ .processing {
+  color: #007BFF;
+ }
+ .completed {
+  color: #28A745;
+ }
+ .cancelled {
+  color: #DC3545;
+ }
+ .form-group {
+  width: fit-content;
+  align-items: center;
+ }
+
+ .form-group div {
+  padding: 0;
+  margin-bottom: 0.2rem;
+ 
+ }
+ .form-group button {
+  margin-bottom: 0;
+ }
+
+ .change-status form {
+  justify-items: center;
  }
