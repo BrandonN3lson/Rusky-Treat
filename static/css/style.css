@@ -99,6 +99,7 @@ p {
   justify-content: space-between;
 }
 
+.toast.show > .alert.alert-danger,
 .toast.show > .alert.alert-success {
   margin-bottom: 0 !important;
 }

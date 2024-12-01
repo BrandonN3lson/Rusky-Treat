@@ -8,7 +8,7 @@
                 aria-atomic="true"
             >
                 
-                <div class="alert alert-{% if message.tags == 'success' %}success{% else %}error{% endif %}" >
+                <div class="alert alert-{% if message.tags == 'success' %}success{% else %}danger{% endif %}" >
                     <strong class="me-auto alert-header text-capitalize">
                         {{ message.tags }}
                         <button

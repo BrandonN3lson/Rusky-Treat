@@ -334,7 +334,7 @@ class CancelOrder(View):
                                       )
         except Exception as e:
             print(f'Error fetching order {e}')
-            messages.error(request, 'Order not found')
+            messages.error(request, 'Order was already cancelled')
             return redirect('orders')
         order.status = 'Cancelled'
         order.save()

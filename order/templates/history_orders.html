@@ -39,17 +39,20 @@
                                 </tbody>
                             </table>
                         </div>
-                        <div class="col-12 col-sm-3 d-flex flex-column-reverse">
+                        <div class="col-12 col-sm-3 d-flex flex-column-reverse justify-content: space-evenly;">
                             <div class="col-12 text-center">
-                                <h6>Total Price: €{{ order.total_price }}</h6>
+                                <h6>Total: €{{ order.total_price }}</h6>
                             </div>
 
-                            <div class="row justify-content-center">
-                                <div class="col-4 text-center edit-btn {% if editing_order %}d-none{% else %}d-block{% endif %}">
-                                    <a class="btn " href="{% url 'edit_order' order.id %}"><i class="fa-solid fa-pen-to-square"></i></a>
-                                </div>
-                                <div class="col-4 text-center cancel-btn">
-                                    <a class="btn delete-order-btn" href="{% url 'cancel_order' order.id %}"><i class="fa-solid fa-x"></i></a>
+                            <div class="col-12 justify-content-center">
+
+                                <div class="row justify-content-center">
+                                    <div class="col-4 text-center edit-btn {% if editing_order %}d-none{% else %}d-block{% endif %}">
+                                        <a class="btn " href="{% url 'edit_order' order.id %}"><i class="fa-solid fa-pen-to-square"></i></a>
+                                    </div>
+                                    <div class="col-4 text-center cancel-btn">
+                                        <a class="btn delete-order-btn" href="{% url 'cancel_order' order.id %}"><i class="fa-solid fa-x"></i></a>
+                                    </div>
                                 </div>
     
                             </div>
