@@ -9,6 +9,7 @@
 body {
   margin: 0.5rem;
   background-color: #f4f1ea;
+  width: 100%;
 }
 
 /* -----------------------------------------------------------background color */
@@ -142,10 +143,12 @@ ul.nav.nav-tabs{
     margin-bottom: 1rem;
 }
 
+
 .carousel {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   border-radius: 1rem;
   margin-top: 1rem;
+  margin-right: 1rem;
 }
 
 .carousel-item img {

@@ -68,12 +68,12 @@
 
                             <div class="col-12 justify-content-center change-status">
 
-                                <form method="POST" action="#">
+                                <form method="POST" action="{% url 'change_status' order.id %}">
                                     {% csrf_token %}
                                     <div class="form-group row gap-1">
                                         <div class="col-auto">
                                             <select class="form-control" id="status" name="status">
-                                                <option value="Compeleted">Completed</option>
+                                                <option value="Completed">Completed</option>
                                                 <option value="Cancelled">Cancelled</option>
                                               </select>
                                         </div>
@@ -116,7 +116,7 @@
                         <div class="col-12 col-md-3 order-info">
                             <p>Order #{{ order.id }}</p>
                             <p class="text-capitalize">
-                                Name: {{ order.user }}
+                                <strong>{{ order.user }}</strong>
                             </p>
                             <p class="text-capitalize order-status">
                                 Status:
@@ -159,15 +159,25 @@
                                 <h6>Total Price: €{{ order.total_price }}</h6>
                             </div>
 
-                            <!-- <div class="row justify-content-center">
-                                    <div class="col-4 text-center edit-btn ">
-                                        <a class="btn " href="#"><i class="fa-solid fa-pen-to-square"></i></a>
+                            <div class="col-12 justify-content-center change-status">
+
+                                <form method="POST" action="{% url 'change_status' order.id %}">
+                                    {% csrf_token %}
+                                    <div class="form-group row gap-1">
+                                        <div class="col-auto">
+                                            <select class="form-control" id="status" name="status">
+                                                <option value="Processing">Processing</option>
+                                                <option value="Completed">Completed</option>
+                                                <option value="Cancelled">Cancelled</option>
+                                              </select>
+                                        </div>
+                                        <div class="col-auto">
+                                            <button type="submit" class="btn btn-primary" ><i class="fa fa-sync"></i></button>
+                                        </div>
                                     </div>
-                                    <div class="col-4 text-center cancel-btn">
-                                        <a class="btn delete-order-btn" href="#"><i class="fa-solid fa-x"></i></a>
-                                    </div>
-        
-                                </div> -->
+
+                                </form>
+                            </div>
                         </div>
 
                     </div>

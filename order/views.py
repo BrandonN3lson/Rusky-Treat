@@ -34,6 +34,25 @@ class AdminOrderPage(generic.ListView):
         return context
 
 
+class ChangeOrderStatus(View):
+
+    def post(self, request, order_id):
+        order = get_object_or_404(Order, id=order_id)
+        status = request.POST.get('status')
+
+        order.status = status
+        order.save()
+
+        if status == 'Processing':
+            messages.success(request, f'order #{order.id} in progress')
+        elif status == 'Completed':
+            messages.success(request, f'order #{order.id} Completed')
+        elif status == 'Cancelled':
+            messages.error(request, f'order #{order.id} Cancelled')
+
+        return redirect('admin_orders')
+
+
 class OrderPage(generic.ListView):
     model = Order
     template_name = "order_page.html"

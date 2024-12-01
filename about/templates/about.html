@@ -21,29 +21,33 @@
     </section>
 
     <section class="row gallery justify-content-center">
-
-        <div class="col-sm-4 gallery-text">
+        <div class="col-sm-4 gallery-text text-center">
             <h2>Gallery</h2>
         </div>
-
-        <div id="about-carousel" class="col carousel slide carousel-fade mb-4 w-50" data-bs-ride="carousel">
-            <div class="carousel-inner">
-                {% for image in about.image.all %}
-                <div class="carousel-item active">
-                    <img src="{{image.image.url}}" class="d-block w-100 img-fluid " alt="Bakery Process">
+    
+        <div class="col-12 col-sm-8 about-carousel">
+            <div id="about-carousel" class="carousel slide carousel-fade mb-4" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    {% for item in about %}
+                        {% for image in item.images.all %}
+                            <div class="carousel-item {% if forloop.parentloop.first and forloop.first %}active{% endif %}">
+                                <img src="{{ image.images.url }}" class="d-block w-100 img-fluid" alt="Bakery Process">
+                            </div>
+                        {% endfor %}
+                    {% endfor %}
                 </div>
-                {% endfor %}
+                <a class="carousel-control-prev" href="#about-carousel" role="button" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#about-carousel" role="button" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </a>
             </div>
-            <a class="carousel-control-prev" href="#about-carousel" role="button" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#about-carousel" role="button" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </a>
         </div>
     </section>
+    
     
 
 {% endblock %}
