@@ -11,6 +11,9 @@
                 <div class="col col-md-4 col-lg-3 card-category">
                     <div class="card-bg-image product-card align-items-center">
                         <div class="card">
+                            {% if user.is_superuser %}
+                            <a class="btn delete-product-btn" href="{% url 'delete_product' product_id=product.id %}"><i class="fa-solid fa-x"></i></a>
+                            {%endif%}
                             <img src="{{ product.image.url }}" class="card-img-top" alt="{{ product.name }}">
                             <div class="card-body">
                                 <h5 class="card-title">{{ product.name }}</h5>

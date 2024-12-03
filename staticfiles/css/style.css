@@ -53,6 +53,11 @@ header {
   background-color: #deb887;
 }
 /* -----------------------------------------------------------general styles */
+h1 .main-heading {
+  text-decoration: none !important;
+  color: #4b3621 !important;
+}
+
 .container {
   padding-left: 0 !important;
   padding-right: 0 !important;
@@ -176,6 +181,7 @@ ul.nav.nav-tabs{
   text-align: left;
 }
 
+.delete-product-btn,
 .delete-category-btn {
   font-size: 20px;
 }

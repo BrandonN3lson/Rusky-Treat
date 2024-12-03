@@ -1,131 +1,155 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# Rusky Treat
 
-Welcome Brandon Nelson,
+[Click here]() to see deployed website!
+## Table of Contents
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
-
-You can safely delete this README.md file or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **June 18, 2024**
-
-## Gitpod Reminders
-
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
-
-`python3 -m http.server`
-
-A blue button should appear to click: _Make Public_,
-
-Another blue button should appear to click: _Open Browser_.
-
-To run a backend Python file, type `python3 app.py` if your Python file is named `app.py`, of course.
-
-A blue button should appear to click: _Make Public_,
-
-Another blue button should appear to click: _Open Browser_.
-
-By Default, Gitpod gives you superuser security privileges. Therefore, you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
-
-To log into the Heroku toolbelt CLI:
-
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
-
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you, so do not share it. If you accidentally make it public, you can create a new one with _Regenerate API Key_.
-
-### Connecting your Mongo database
-
-- **Connect to Mongo CLI on a IDE**
-- navigate to your MongoDB Clusters Sandbox
-- click **"Connect"** button
-- select **"Connect with the MongoDB shell"**
-- select **"I have the mongo shell installed"**
-- choose **mongosh (2.0 or later)** for : **"Select your mongo shell version"**
-- choose option: **"Run your connection string in your command line"**
-- in the terminal, paste the copied code `mongo "mongodb+srv://<CLUSTER-NAME>.mongodb.net/<DBname>" --apiVersion 1 --username <USERNAME>`
-  - replace all `<angle-bracket>` keys with your own data
-- enter password _(will not echo **\*\*\*\*** on screen)_
-
-------
-
-## Release History
-
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
-
-**June 18, 2024,** Add Mongo back into template
-
-**June 14, 2024,** Temporarily remove Mongo until the key issue is resolved
-
-**May 28 2024:** Fix Mongo and Links installs
-
-**April 26 2024:** Update node version to 16
-
-**September 20 2023:** Update Python version to 3.9.17.
-
-**September 1 2021:** Remove `PGHOSTADDR` environment variable.
-
-**July 19 2021:** Remove `font_fix` script now that the terminal font issue is fixed.
-
-**July 2 2021:** Remove extensions that are not available in Open VSX.
-
-**June 30 2021:** Combined the P4 and P5 templates into one file, added the uptime script. See the FAQ at the end of this file.
-
-**June 10 2021:** Added: `font_fix` script and alias to fix the Terminal font issue
-
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
-
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
-
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
-
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
-
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
-
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
-
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
-
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
-
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
-
-------
-
-## FAQ about the uptime script
-
-**Why have you added this script?**
-
-It will help us to calculate how many running workspaces there are at any one time, which greatly helps us with cost and capacity planning. It will help us decide on the future direction of our cloud-based IDE strategy.
-
-**How will this affect me?**
-
-For everyday usage of Gitpod, it doesn’t have any effect at all. The script only captures the following data:
-
-- An ID that is randomly generated each time the workspace is started.
-- The current date and time
-- The workspace status of “started” or “running”, which is sent every 5 minutes.
-
-It is not possible for us or anyone else to trace the random ID back to an individual, and no personal data is being captured. It will not slow down the workspace or affect your work.
-
-**So….?**
-
-We want to tell you this so that we are being completely transparent about the data we collect and what we do with it.
-
-**Can I opt out?**
-
-Yes, you can. Since no personally identifiable information is being captured, we'd appreciate it if you let the script run; however if you are unhappy with the idea, simply run the following commands from the terminal window after creating the workspace, and this will remove the uptime script:
-
-```
-pkill uptime.sh
-rm .vscode/uptime.sh
-```
-
-**Anything more?**
-
-Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` file so that you know what it's doing. As future software developers, it will be great practice to see how these shell scripts work.
+- [About](#about)
+- [Features](#features)
+- [Usage](#usage)
+- [Technologies used](#technologies-used)
+- [Deployment](#deployment)
+- [Testing](#testing)
+- [References](#references)
 
 ---
+## About
 
-Happy coding!
+Welcome to Rusky Treats, a handcrafted bakery where tradition meets taste. This website showcases a variety of baked goods, allows users to explore categories, view product details, and place orders. Built with Django, it integrates modern web technologies to deliver a seamless user experience.
+
+---
+## **Features**
+
+1. **Homepage**
+    - Hero section with a warm welcome message
+    - Overview of categories and featured products
+
+2. **Category Management**
+    - Browse Baked goods by category (eg. Bread, Cake, Rusks)
+    - superusers can add and delete categories
+
+3. **Product Management**  
+   - View product details, including name, description, price, and image.  
+   - Superusers can add and delete products.
+
+4. **Order Management**  
+   - Add products to a cart and specify quantities.  
+   - Manage orders through a dedicated orders page.
+
+5. **Responsive Design**  
+   - Optimized for desktops, tablets, and mobile devices.
+
+6. **Dynamic Image Management**  
+   - Images are stored on Cloudinary for efficient hosting and delivery.
+
+7. **Admin Features**  
+   - Modals for adding categories and products directly from the UI.  
+   - Alerts and feedback messages for user actions (e.g., product added, category deleted).
+
+---
+## **Usage**
+
+### Superuser
+#### **Adding Products and categories**
+  - Navigate to the homepage.
+  - Superusers can use the "Add Category" and "Add Product" modals to manage 
+    content.
+  
+#### **Updating Orders status**
+- Navigate to the orders page
+- Superuser can view all *pending* and *Processing* orders 
+- if orders are *Pending* superuser can press the "sync" icon to change status 
+  when starting order, this will change the status to *Processing*
+- if the order is completed, superuser can press icon again to remove 
+  completed order,
+
+### User
+#### **Placing Orders**
+  - Browse categories or products.
+  - Select quantity and click Add to Cart.
+  - Review and manage orders on the orders page.
+
+#### **Editing Cart**
+- User can edit quantities and/or delete products currently in cart before 
+  submitting order.
+
+#### **Editing Order**
+- If order is still *Pending*, User can:
+    - Edit quantity of Product
+    - Remove a product
+    - Cancel Order
+
+---
+## **Technologies Used**
+
+### Backend
+- **Django**: For the web framework.  
+- **PostgreSQL**: For database management.  
+- **Django ORM**: To interact with the database.  
+- **Cloudinary**: For storing and serving images.
+
+### Frontend
+- **HTML5, CSS, Bootstrap 5**: For styling and layout.  
+- **JavaScript**: For interactivity.
+
+### Tools
+- **GitPod**: For coding environment.  
+- **Crispy Forms**: For enhanced form styling.  
+- **Django Messages Framework**: For user notifications.  
+- **Django Summernote**: For rich-text content editing.  
+- **Gunicorn**: For serving the application in production.  
+- **Django Allauth**: For user authentication and management.  
+- **Psycopg**: PostgreSQL database adapter for Django.  
+- **WhiteNoise**: For efficient static file handling in production.
+
+---
+## Deployment
+This website has been deloyed using Heruko.
+The link to the website is at the start of the Readme.
+
+### Local Development
+### Prerequisites
+- Python 3.10+  
+- Django 4.2+  
+- PostgreSQL  
+- Cloudinary account  
+
+#### How to Fork
+
+To fork the repository:
+
+1. Log in (or sign up) to Github.
+2. Go to the repository for this project, brandonn3lson/Rusky-Treat.
+3. Click the Fork button in the top right corner.
+
+#### How to Clone
+1. Find the repository for this project, Rusky-Treat
+2. **Get the Clone URL** Click on the green "Code" button and copy the URL that appears.
+3. Open Terminal or Command Prompt: Open the Terminal (Mac/Linux) or Command Prompt (Windows).
+4. Navigate to the Directory: Use the cd command to go to the folder where you want to put the cloned repository.
+5. Clone the Repository: Type git clone, paste the URL you copied, and press Enter.
+6. Wait for it to Finish: It might take a moment. Once it's done, you'll see a message.
+7. Done!: You now have a copy of the repository on your computer.
+
+---
+## **Tests**
+
+#### Manual Testing
+
+| **Test Case**                    | **Test Steps**                                                                                                                                       | **Expected Result**                                                                                                                                                             | **Status** | **Notes**                                      |
+|-----------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------|------------------------------------------------|
+| **Homepage Load**                 | 1. Navigate to the homepage of Rusky Treats.                                                                                                         | The homepage should load successfully with the hero section, navigation bar, and all relevant content.                                                                         | Pass       | Verify that all elements are visible and styled.|
+| **Category Browsing**             | 1. Click on a product category in the navbar or dropdown.                                                                                           | The user should be directed to the category page with the appropriate products displayed.                                                                                         | Pass       | Check that correct products appear in each category.|
+| **Product Page Navigation**       | 1. Select a product from the homepage or category page.                                                                                             | The product details page should load with the product's image, description, and price.                                                                                          | Pass       | Confirm all product details are displayed.      |
+| **Add Product to Cart**           | 1. Navigate to a product details page.<br>2. Select a quantity and click "Add to Cart."                                                             | The product should be added to the cart with the selected quantity, and a confirmation message should appear.                                                                   | Pass       | Ensure the cart is updated correctly.           |
+| **Login to Order**                | 1. Log in as a user.<br>2. Navigate to a product details page.<br>3. Attempt to add a product to the cart.                                          | The user should be able to add the product to the cart after logging in.                                                                                                      | Pass       | Check that login redirects to product page.     |
+| **Add Product Form (Admin)**      | 1. Log in as a superuser.<br>2. Navigate to the "Add Product" modal.<br>3. Fill out the form and submit.                                             | The new product should be added to the database and appear on the products page.                                                                                                | Pass       | Ensure validation checks are in place.          |
+| **Delete Product (Admin)**        | 1. Log in as a superuser.<br>2. Navigate to a product page.<br>3. Click the delete button for a product.                                              | The selected product should be removed from the database and no longer appear on the product page.                                                                              | Pass       | Ensure correct product removal from database.   |
+| **Display Toast Notifications**   | 1. Perform an action that triggers a toast notification (e.g., adding to cart, logging in, etc.).                                                     | A toast notification should appear in the bottom right of the screen indicating success or failure (depending on the action).                                                   | Pass       | Confirm the notification message and style.     |
+| **User Logout**                   | 1. Log in as a user.<br>2. Navigate to the "Logout" button and click it.                                                                             | The user should be logged out, and the page should redirect to the homepage with login and registration options available.                                                       | Pass       | Ensure logout successfully clears session.      |
+| **Admin Category Addition**       | 1. Log in as a superuser.<br>2. Navigate to the "Add Category" modal.<br>3. Fill out the form and submit.                                              | The new category should be added to the category list, and the products page should reflect this new category.                                                                  | Pass       | Check the correct creation of categories.       |
+| **Responsive Design**             | 1. Resize the browser window or test on different devices (mobile, tablet, desktop).                                                                  | The layout should adjust appropriately for each screen size, with mobile views collapsing into dropdown menus and smaller sections, and the desktop view displaying more content. | Pass       | Test across different screen sizes.             |
+| **Product Image Display**         | 1. Navigate to a product details page.<br>2. Check that the product image loads properly.                                                           | The product image should display at full resolution and should be responsive to window resizing.                                                                               | Pass       | Verify image resolution and responsiveness.     |
+| **Form Validation (Add Category)**| 1. Log in as a superuser.<br>2. Open the "Add Category" form.<br>3. Submit the form with missing or incorrect data (e.g., blank fields).             | The form should display an error message for missing or incorrect fields.                                                                                                     | Pass       | Ensure field validation works correctly.        |
+| **Error Page Handling**           | 1. Navigate to a non-existing page.                                                                                           | A 404 error page should appear with a message indicating that the page was not found.                                                                                           | Pass       | Test with random invalid URLs.                 |
+| **Product Detail Redirection**    | 1. Click on a product's "View" button from the category or homepage.                                                                                  | The page should redirect to the correct product details page for the selected product.                                                                                         | Pass       | Verify the redirection works as expected.       |
+

@@ -1,5 +1,5 @@
 # views.py
-from django.views import generic
+from django.views import generic, View
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib import messages
 from .models import Product, Category
@@ -38,6 +38,20 @@ class ProductPage(generic.ListView):
         context['categories'] = categories
         context['add_product_form'] = add_product_form
         return context
+
+
+class DeleteProduct(View):
+    def get(self, request, product_id):
+        try:
+            product = get_object_or_404(Product, id=product_id)
+            category_slug = product.category.slug
+        except Product.DoesNotExist:
+            messages.error(request, 'Category doesnt exist')
+            return redirect('index')
+        product.delete()
+        messages.success(request,
+                         f'Product {product.name} has been deleted')
+        return redirect('product_category', category_slug=category_slug)
 
 
 def product_detail(request, slug):
