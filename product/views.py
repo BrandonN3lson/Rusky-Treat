@@ -1,7 +1,10 @@
 # views.py
 from django.views import generic
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
+from django.contrib import messages
 from .models import Product, Category
+from .forms import AddProductForm
+from category.forms import AddCategoryForm
 
 
 class ProductPage(generic.ListView):
@@ -11,6 +14,7 @@ class ProductPage(generic.ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
+        add_product_form = AddProductForm()
 
         # Check if category_slug is passed in URL
         category_slug = self.kwargs.get('category_slug')
@@ -32,6 +36,7 @@ class ProductPage(generic.ListView):
 
         context['products_by_category'] = products_by_category
         context['categories'] = categories
+        context['add_product_form'] = add_product_form
         return context
 
 
@@ -39,3 +44,21 @@ def product_detail(request, slug):
 
     product = get_object_or_404(Product, slug=slug)
     return render(request, 'product_detail.html', {'product': product})
+
+
+def add_product(request):
+    add_category_form = AddCategoryForm()
+    add_product_form = AddProductForm(request.POST, request.FILES)
+
+    if request.method == 'POST':
+        if add_product_form.is_valid():
+            add_product_form.save()
+            return redirect('index')
+        else:
+            messages.error(request, 'form is invalid')
+    return render(request,
+                  'index.html',
+                  {
+                    'add_category_form': add_category_form,
+                    'add_product_form': add_product_form,
+                    })

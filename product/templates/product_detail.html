@@ -5,7 +5,7 @@
 <div class="container mt-5">
     <div class="row">
         <div class="col-md-6 text-center">
-            <div class="product_image">
+            <div class="product-image">
                 <img class=" img-fluid scale" src="{{ product.image.url }}" alt="{{ product.name }}">
             </div>
         </div>
@@ -14,7 +14,7 @@
                 <h2 class="mb-3"> {{ product.name }}</h2>
                 <p class="mb-3"> {{ product.description }}</p>
             </div>
-
+            {% if user.is_authenticated %}
             <form method="POST" action="{% url 'add_to_cart' product.id %}">
                 {% csrf_token %}
                 <div class="input-group mb-3">
@@ -25,7 +25,9 @@
                 </div>
                 <button type="submit" class="btn btn-primary" >Add to Cart</button>
             </form>
-
+            {% else %}
+            <a class="btn btn-primary" aria-current="page" href="{% url 'account_login' %}">Login to order</a>
+            {% endif %}
 
         </div>
 

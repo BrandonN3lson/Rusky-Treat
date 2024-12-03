@@ -9,7 +9,6 @@
 body {
   margin: 0.5rem;
   background-color: #f4f1ea;
-  width: 100%;
 }
 
 /* -----------------------------------------------------------background color */
@@ -143,12 +142,10 @@ ul.nav.nav-tabs{
     margin-bottom: 1rem;
 }
 
-
 .carousel {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   border-radius: 1rem;
   margin-top: 1rem;
-  margin-right: 1rem;
 }
 
 .carousel-item img {
@@ -175,6 +172,14 @@ ul.nav.nav-tabs{
   padding-top: 1rem;
 }
 
+.card>a {
+  text-align: left;
+}
+
+.delete-category-btn {
+  font-size: 20px;
+}
+
 .card-catagory,
 .card-item {
   margin-right: 0.5rem;
@@ -199,6 +204,10 @@ ul.nav.nav-tabs{
   border-radius: 10px;
 }
 
+.product-image>img{
+  object-fit: contain;
+}
+
 .category-title {
   border-top: 1px solid #b2a27e;
   border-bottom: 1px solid #b2a27e;
@@ -212,7 +221,7 @@ ul.nav.nav-tabs{
   height: 25rem;
   border-radius: 10px;
 }
-
+ 
 
 /* -----------------------------------------------------------registry page */
 
@@ -220,12 +229,6 @@ ul.nav.nav-tabs{
   margin-top: 1rem;
   border-radius: 20px;
   padding: 1rem;
-}
-
-form input,
-form button {
-  margin-bottom: 1rem;
-
 }
 
 .input-group-text {
@@ -351,6 +354,7 @@ td{
   margin-bottom: 0;
  }
 
+ .delete-category-btn,
  .delete-order-btn {
   color: #a82222;
  }
