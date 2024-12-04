@@ -184,6 +184,7 @@ ul.nav.nav-tabs{
 .delete-product-btn,
 .delete-category-btn {
   font-size: 20px;
+  color: #a82222;
 }
 
 .card-catagory,
@@ -359,8 +360,6 @@ td{
  .edit-btn > form button {
   margin-bottom: 0;
  }
-
- .delete-category-btn,
  .delete-order-btn {
   color: #a82222;
  }
