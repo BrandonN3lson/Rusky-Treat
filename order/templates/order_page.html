@@ -42,12 +42,13 @@
                                                     name="quantity" 
                                                     value="{{ item.quantity }}" 
                                                     onchange="this.form.submit()" 
-                                                />
+                                                >
                                             </form>
                                         </td>
                                         <td>{{ item.product.price }}</td>
                                         <td>€{{ item.total_price }}</td>
                                         <td><a class="btn" href="{% url 'remove_from_cart' item.product.id %}"><i class="fa-solid fa-x"></i></a></td>
+                                    </tr>
                                     {% endfor %}
                                 </tbody>
                             </table>
@@ -90,6 +91,7 @@
                                                 <th scope="col">Quantity</th>
                                                 <th scope="col">Unit Price</th>
                                                 <th scope="col">Total Price</th>
+                                                <th scope="col"></th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -106,12 +108,13 @@
                                                             name="quantity" 
                                                             value="{{ item.quantity }}" 
                                                             onchange="this.form.submit()" 
-                                                        />
+                                                        >
                                                     </form>
                                                 </td>
                                                 <td>{{ item.product.price }}</td>
                                                 <td>€{{ item.total_price }}</td>
                                                 <td><a class="btn" href="{% url 'remove_from_order' order.id item.product.id %}"><i class="fa-solid fa-x"></i></a></td>
+                                            </tr>
                                             {% endfor %}
                                         </tbody>
                                     </table>

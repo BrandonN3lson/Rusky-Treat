@@ -10,9 +10,9 @@
                     {% for item in about %}
                     <h2 class="mb-4">{{ item.title }}</h2>
 
-                    <p class="lead mb-4">
+                    <article class="lead mb-4">
                         {{ item.content | safe }}
-                    </p>
+                    </article>
                     {% endfor %}
 
                 </div>

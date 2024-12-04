@@ -8,7 +8,7 @@
 - [Usage](#usage)
 - [Technologies used](#technologies-used)
 - [Deployment](#deployment)
-- [Testing](#testing)
+- [Testing and Validation](#testing-and-validation)
 - [References](#references)
 
 ---
@@ -131,7 +131,14 @@ To fork the repository:
 7. Done!: You now have a copy of the repository on your computer.
 
 ---
-## **Tests**
+## **Testing and Validation**
+
+#### Validators used
+
+- W3C validator
+- jigsaw css validator
+- Jshint
+- Waves
 
 #### Manual Testing
 
