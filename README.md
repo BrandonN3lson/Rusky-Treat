@@ -133,14 +133,31 @@ To fork the repository:
 ---
 ## **Testing and Validation**
 
-#### Validators used
+### Validators used
 
 - W3C validator
 - jigsaw css validator
-- Jshint
 - Waves
+- lighthouse
 
-#### Manual Testing
+  ### W3C validator
+
+  - [Index Page HTML](./static/images/w3c-index.png)
+  - [Product Page HTML](./static/images/w3c-product-page.png)
+  - [Product Detail HTML](./static/images/w3c-product-detail-page.png)
+  - [Order Page HTML](./static/images/w3c-order-page.png)
+  - [Admin Order Page HTML](./static/images/w3c-admin-order-page.png)
+  - [About Page HTML](./static/images/w3c-about-page.png)
+  - [login Page HTML](./static/images/w3c-login-page.png)
+  - [logout Page HTML](./static/images/w3c-logout-page.png)
+
+  ### jigsaw css validator
+
+  - [css validator image](./static/images/jigsaw-css-validate.png)
+
+
+
+### Manual Testing
 
 | **Test Case**                    | **Test Steps**                                                                                                                                       | **Expected Result**                                                                                                                                                             | **Status** | **Notes**                                      |
 |-----------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------|------------------------------------------------|

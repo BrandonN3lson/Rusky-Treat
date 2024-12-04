@@ -16,7 +16,7 @@
                             {%endif%}
                             <img src="{{ product.image.url }}" class="card-img-top" alt="{{ product.name }}">
                             <div class="card-body">
-                                <h5 class="card-title">{{ product.name }}</h5>
+                                <p class="card-title product-title">{{ product.name }}</p>
                                 <p class="card-text">{{ product.description }}</p>
                                 <p class="card-text"><strong>Price: </strong>€{{ product.price }}</p>
                                 <a href="{% url 'product_detail' product.slug %}" class="btn btn-primary">View</a>

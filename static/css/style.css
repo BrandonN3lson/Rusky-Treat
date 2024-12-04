@@ -18,6 +18,10 @@ header {
     ;
 }
 
+.footer {
+  background-color: transparent;
+}
+
 #hero {
   background-image: url("../images/hero-bakery.jpg");
   background-size: cover;
@@ -53,6 +57,7 @@ header {
   background-color: #deb887;
 }
 /* -----------------------------------------------------------general styles */
+
 h1 .main-heading {
   text-decoration: none !important;
   color: #4b3621 !important;
@@ -198,6 +203,15 @@ ul.nav.nav-tabs{
   gap: 1rem;
 }
 /* -----------------------------------------------------------product page */
+.category-name,
+.product-title {
+  font-size: 1.25rem; 
+  font-weight: bold;  
+  line-height: 1.2;   
+  margin: 1rem 0;  
+}
+
+
 .product-card {
   width: 16rem;
   padding: 1rem;
@@ -262,6 +276,11 @@ ul.nav.nav-tabs{
   margin-left: 1rem;
 }
 
+a.sign-in-link,
+a.sign-up-link {
+  color: #02409D !important;
+
+}
 /* -----------------------------------------------------------order page */
 .current-order-title {
   border-top: 1px solid #b2a27e;
@@ -394,3 +413,44 @@ td{
  .change-status form {
   justify-items: center;
  }
+
+ 
+ /* -----------------------------------------------------------footer */
+ .footer {
+  margin-top: 1rem;
+  padding: 2rem 0;
+  text-align: center;
+}
+
+.footer .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.footer-content p {
+  color: #6f4e37;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links li {
+  display: inline-block;
+  margin: 0 15px;
+}
+
+.footer-links a {
+  text-decoration: none;
+  color: #6f4e37;
+  font-size: 1.5rem;
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
+  color: #d36e3f;
+}
