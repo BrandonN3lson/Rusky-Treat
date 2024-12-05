@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container-fluid d-flex text-center m-3 error-container">
+    <div class="row">
+        <div class="col-12">
+            <h1 class="text-antiquewhite">404 Error!</h1>
+            <h2 class="text-antiquewhite">Sorry! Page not found</h2>
+            <h3 class="text-antiquewhite">
+              follow link below, We'll guide you in the right direction
+            </h3>
+        </div>
+        <div class="col-12" class="return-to-index">
+            <h3 class="hidden">Go to main page</h3>
+            <a class="return-to-index" href="{% url 'index' %}">Visit Homepage</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -453,3 +453,12 @@ td{
   text-decoration: underline;
   color: #d36e3f;
 }
+ /* -----------------------------------------------------------error pages */
+ .error-container {
+  padding: 2rem;
+  justify-content: center;
+ }
+
+ a.return-to-index {
+  color: #02409D;
+ }
