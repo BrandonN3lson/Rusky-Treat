@@ -264,4 +264,7 @@ To fork the repository:
 - [Dev.To](https://dev.to/)
   - [Context processors](https://dev.to/sarahhudaib/context-processors-in-django-15h2)
 
+-[W3schools](https://www.w3schools.com/html/)
+  - [attribute enctype](https://django-crispy-forms.readthedocs.io/en/latest/) was used on form to upload image file for new categories and products.
+
 - [Crispy Forms Documentation](https://django-crispy-forms.readthedocs.io/en/latest/)
