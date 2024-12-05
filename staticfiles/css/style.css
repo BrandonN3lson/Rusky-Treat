@@ -140,9 +140,15 @@ ul.nav.nav-tabs{
 
 /* -----------------------------------------------------------About section */
 #about {
-  padding: 2rem;
+  padding: 1rem;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
+
+.about-section {
+  width: 100%;
+  padding: 0.3rem;
+}
+
 
 .gallery-text {
   display: flex;
