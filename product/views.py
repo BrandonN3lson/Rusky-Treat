@@ -8,6 +8,25 @@ from category.forms import AddCategoryForm
 
 
 class ProductPage(generic.ListView):
+    """
+    Class: ProductPage
+    - Displays a list of products, filtered by category.
+      The view retrieves all products or products from a specific category
+      based on the 'category_slug'.
+
+    Attributes:
+    - model: The Product model that the view operates on.
+    - template_name: The template to render, which is 'product_page.html'.
+    - context_object_name: ('products') The name of the context variable
+                           to be used in the template.
+
+    Methods:
+    - get_context_data: Adds additional context to the view, including:
+      - A form for adding a product (AddProductForm).
+      - A dictionary of products grouped by category.
+      - A list of all categories.
+    """
+
     model = Product
     template_name = "product_page.html"
     context_object_name = 'products'
@@ -41,6 +60,17 @@ class ProductPage(generic.ListView):
 
 
 class DeleteProduct(View):
+    """
+    View: DeleteProduct
+    - Handles the deletion of a product. When a product is deleted,
+      the user is redirected back to the index page.
+
+    Methods:
+    - get: Handles the GET request, checks if the product exists, deletes it,
+      and shows a success message.
+      If the product does not exist, an error message is shown.
+    """
+
     def get(self, request, product_id):
         try:
             product = get_object_or_404(Product, id=product_id)
@@ -55,12 +85,29 @@ class DeleteProduct(View):
 
 
 def product_detail(request, slug):
+    """
+    View: product_detail
+    - Displays the details of a specific product based on its slug.
+      This view renders the 'product_detail.html' template with the
+      selected product.
+    """
 
     product = get_object_or_404(Product, slug=slug)
     return render(request, 'product_detail.html', {'product': product})
 
 
 def add_product(request):
+    """
+    View: add_product
+    - Handles the creation of a new product. The form includes options
+      to add a product and its category. If the form is valid,
+      the product is saved and the user is redirected to the index page.
+      If invalid, an error message is displayed.
+
+    Methods:
+    - request.method == 'POST': Handles form submission.
+    """
+
     add_category_form = AddCategoryForm()
     add_product_form = AddProductForm(request.POST, request.FILES)
 
