@@ -10,7 +10,7 @@ class Category(models.Model):
     a unique slug based on the title.
 
     Attributes:
-        1. title (CharField): The name of the category, limited to 30 
+        1. title (CharField): The name of the category, limited to 30
                               characters and must be unique.
 
         2. slug (SlugField): A unique identifier generated from the title.

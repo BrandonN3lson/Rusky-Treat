@@ -1,6 +1,7 @@
 # Rusky Treat
+![](./static/images/index-page.png)
 
-[Click here]() to see deployed website!
+[Click here](https://rusky-treat-ad387037dcc7.herokuapp.com/) to see deployed website!
 ## Table of Contents
 
 - [About](#about)
@@ -9,6 +10,7 @@
 - [Technologies used](#technologies-used)
 - [Deployment](#deployment)
 - [Testing and Validation](#testing-and-validation)
+- [Planned Features & Future Enhancements](#planned-features-&-future-enhancements)
 - [References](#references)
 
 ---
@@ -23,9 +25,13 @@ Welcome to Rusky Treats, a handcrafted bakery where tradition meets taste. This 
     - Hero section with a warm welcome message
     - Overview of categories and featured products
 
+    ![](./static/images/home-page.gif)
+
 2. **Category Management**
     - Browse Baked goods by category (eg. Bread, Cake, Rusks)
     - superusers can add and delete categories
+
+    ![](./static/images/browse-products.gif)
 
 3. **Product Management**  
    - View product details, including name, description, price, and image.  
@@ -34,6 +40,8 @@ Welcome to Rusky Treats, a handcrafted bakery where tradition meets taste. This 
 4. **Order Management**  
    - Add products to a cart and specify quantities.  
    - Manage orders through a dedicated orders page.
+
+   ![](./static/images/adding-to-cart.gif)
 
 5. **Responsive Design**  
    - Optimized for desktops, tablets, and mobile devices.
@@ -101,6 +109,21 @@ Welcome to Rusky Treats, a handcrafted bakery where tradition meets taste. This 
 - **Psycopg**: PostgreSQL database adapter for Django.  
 - **WhiteNoise**: For efficient static file handling in production.
 
+### Model Design
+- [Lucidchart](https://www.lucidchart.com/pages/landing?utm_source=google&utm_medium=cpc&utm_campaign=_chart_en_tier1_mixed_search_brand_exact_&km_CPC_CampaignId=1490375427&km_CPC_AdGroupID=137488435595&km_CPC_Keyword=lucid%20app&km_CPC_MatchType=e&km_CPC_ExtensionID=&km_CPC_Network=g&km_CPC_AdPosition=&km_CPC_Creative=598116882677&km_CPC_TargetID=kwd-302739930476&km_CPC_Country=1007878&km_CPC_Device=c&km_CPC_placement=&km_CPC_target=&gad_source=1&gclid=Cj0KCQiAu8W6BhC-ARIsACEQoDC-BzS7dziSMLoEBtF0Z2DOJXTpL7FyFaclwr3qG5UtSK2dCjWHiu8aAplXEALw_wcB)
+
+
+
+  - My Schema Model Design in LucidChart [**view here**](./static/images/model-schema.png) 
+  
+- [Balsamic](https://balsamiq.com/)
+  - [index Page](./static/images/balsamiq-index.png) 
+  - [About Page](./static/images/balsamiq-about.png) 
+  - [Product Page](./static/images/balsamiq-product-page.png) 
+  - [Product Detail page](./static/images/balsamic-product-detail-page.png) 
+  - [Order Page](./static/images/balsamiq-order-page.png) 
+  - [Admin Order Page](./static/images/balsamic-admin-order-page.png) 
+
 ---
 ## Deployment
 This website has been deloyed using Heruko.
@@ -136,9 +159,10 @@ To fork the repository:
 ### Validators used
 
 - W3C validator
-- jigsaw css validator
 - Waves
 - lighthouse
+- jigsaw css validator
+- CI python Linter
 
   ### W3C validator
 
@@ -150,10 +174,46 @@ To fork the repository:
   - [About Page HTML](./static/images/w3c-about-page.png)
   - [login Page HTML](./static/images/w3c-login-page.png)
   - [logout Page HTML](./static/images/w3c-logout-page.png)
+  - [404 HTML](./static/images/w3c-404-page.png)
+
+  ### Waves accessiblity validator
+  - [Index Page HTML](./static/images/waze-index.png)
+  - [Product Page HTML](./static/images/waze-product-page.png)
+  - [Product Detail HTML](./static/images/waze-product-detail-page.png)
+  - [About Page HTML](./static/images/waze-about-page.png)
+  - [login Page HTML](./static/images/waze-login-page.png)
+  - [registry Page HTML](./static/images/waze-registry-page.png)
+
+  ### LightHouse Analysis
+  *Mobile*
+    - [Index Page HTML](./static/images/lighthouse-mobile-index.png)
+    - [Product Page HTML](./static/images/lighthouse-mobile-product-page.png)
+    - [Product Detail HTML](./static/images/lighthouse-mobile-product-detail-page.png)
+    - [Order Page HTML](./static/images/lighthouse-mobile-order-page.png)
+    - [Admin Order Page HTML](./static/images/lighthouse-mobile-admin-order-page.png)
+    - [About Page HTML](./static/images/lighthouse-mobile-about.png)
+    - [login Page HTML](./static/images/lighthouse-mobile-login.png)
+    - [logout Page HTML](./static/images/lighthouse-mobile-logout.png)
+    - [registry Page HTML](./static/images/lighthouse-mobile-registry.png)
+  
+  *Desktop*
+    - [Index Page HTML](./static/images/lighthouse-desktop-index.png)
+    - [Product Page HTML](./static/images/lighthouse-desktop-product-page.png)
+    - [Product Detail HTML](./static/images/lighthouse-desktop-product-detail-page.png)
+    - [Order Page HTML](./static/images/lighthouse-desktop-order-page.png)
+    - [Admin Order Page HTML](./static/images/lighthouse-desktop-admin-order-page.png)
+    - [About Page HTML](./static/images/lighthouse-desktop-about.png)
+    - [login Page HTML](./static/images/lighthouse-desktop-login.png)
+    - [logout Page HTML](./static/images/lighthouse-desktop-logout.png)
+    - [registry Page HTML](./static/images/lighthouse-desktop-registry.png)
 
   ### jigsaw css validator
 
   - [css validator image](./static/images/jigsaw-css-validate.png)
+
+  ### CI python Linter
+    - all python files were put throught the Linter and came back PEP8 compatible
+    - [python validator image](./static/images/python-pep8-validator.png)
 
 
 
@@ -177,3 +237,31 @@ To fork the repository:
 | **Error Page Handling**           | 1. Navigate to a non-existing page.                                                                                           | A 404 error page should appear with a message indicating that the page was not found.                                                                                           | Pass       | Test with random invalid URLs.                 |
 | **Product Detail Redirection**    | 1. Click on a product's "View" button from the category or homepage.                                                                                  | The page should redirect to the correct product details page for the selected product.                                                                                         | Pass       | Verify the redirection works as expected.       |
 
+---
+ ## Planned Features & Future Enhancements
+ - **User Confirmation Step**: 
+    - An additional confirmation step is triggered when the button is clicked, requiring the user to confirm their decision."
+- **Email/sms notification**
+    - Notify user when order is being processed/completed
+- **User Profile Page**
+    - Add a profile page for users to edit and display there detail, favourite product, allergies, profile 
+      image etc..
+- **Comment/rating of products**
+    - user can leave comments and rating on the products
+
+## References
+- [Code Institute](https://codeinstitute.com/)
+- [Stack Overflow](https://stackoverflow.com/)
+  - [request.FILES](https://stackoverflow.com/questions/3111779/how-can-i-get-the-file-name-from-request-files)
+  - [Implement pot save logic](https://stackoverflow.com/questions/47019474/implementing-a-post-save-logic-by-overriding-save-related-in-django-admin)
+
+- [Django Documentation](https://www.djangoproject.com/)
+  - [Pagination](https://docs.djangoproject.com/en/5.1/topics/pagination/)
+  - [Creating forms for Models](https://docs.djangoproject.com/en/5.1/topics/forms/modelforms/)
+  - [Request.FILES](https://docs.djangoproject.com/en/5.1/topics/http/file-uploads/)
+  - [Build in Template Tags & Filters](https://docs.djangoproject.com/en/4.2/ref/templates/builtins/#ref-templates-builtins-filters)
+
+- [Dev.To](https://dev.to/)
+  - [Context processors](https://dev.to/sarahhudaib/context-processors-in-django-15h2)
+
+- [Crispy Forms Documentation](https://django-crispy-forms.readthedocs.io/en/latest/)

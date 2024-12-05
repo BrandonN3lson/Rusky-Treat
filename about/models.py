@@ -14,7 +14,7 @@ class About (models.Model):
 
     Classes:
     About: Contains the title and content for the About section.
-    AboutImages: Links images to an About instance and stores them in the  
+    AboutImages: Links images to an About instance and stores them in the
                  'rusky_treat_images' folder on Cloudinary.
 
     """
@@ -27,7 +27,7 @@ class About (models.Model):
 
 class AboutImages (models.Model):
     """
-    AboutImages: Links images to an About instance and stores them in the  
+    AboutImages: Links images to an About instance and stores them in the
                  'rusky_treat_images' folder on Cloudinary.
 
     """

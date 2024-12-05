@@ -10,10 +10,14 @@
     <div class="col-md-8 mt-3 offset-md-2 text-center">
       <h3>{% trans "Sign Up" %}</h3>
 
-      <p>{% blocktrans %}Welcome to Rusky Treats!
+      <p>
+        {% blocktrans %}
+        Welcome to Rusky Treats!
         Create an account to place orders, track your favorites,
         and enjoy a seamless baking experience.
-        If you already have an account, <a class="link sign-in-link" href="{{ login_url }}">log in here</a>.{% endblocktrans %}
+        If you already have an account, 
+        <a class="link sign-in-link" href="{{ login_url }}">log in here</a>.
+        {% endblocktrans %}
       </p>
 
     </div>
